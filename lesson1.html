@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title></title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 45px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+
+.section h2 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h3 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h4 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h5 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h6 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">rstats4bio</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">home</a>
+</li>
+<li>
+  <a href="lesson1.html">lesson1</a>
+</li>
+<li>
+  <a href="lesson2.html">lesson2</a>
+</li>
+<li>
+  <a href="lesson3.html">lesson3</a>
+</li>
+<li>
+  <a href="lesson4.html">lesson4</a>
+</li>
+<li>
+  <a href="lesson5.html">lesson5</a>
+</li>
+<li>
+  <a href="review.html">review</a>
+</li>
+<li>
+  <a href="test.html">test</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<p><br></p>
+<div id="biostatistical-tools" class="section level3">
+<h3>Biostatistical tools</h3>
+<p><img src="bubblegum.png" /><br />
+want data. have data. will collect data.</p>
+<p>assumption: in this course, you are here to work with data. data literacy IS data science.</p>
+<p><a href="http://www.slideshare.net/cjlortie/whyr">WhyR introductory lecture</a></p>
+<p><a href="http://datascienceplus.com/the-importance-of-data-visualization/">The importance of data viz</a></p>
+<p><b> Philosophy of R stats </b></p>
+<p>Statistical thinking: likelihood, error, and effect sizes. Contemporary statisticians embrace and are mindful of these three key concepts in all research, data, and statistical inference examinations.</p>
+<p>Modes of inference with your data: using data, what can you infer or do? 1. Data description 2. Likelihood 3. Estimation 4. Baysian inference - weight and include what we know 5. Prediction 6. Hypothesis testing 7. Decision making -balance gains and risks</p>
+<p>This set of ideas provide the foundation for many data science and statistical approached to working with evidence within almost every domain of science.</p>
+<p><b>Data viz first and foremost. Case study #1.</b></p>
+<pre class="r"><code>#blog post by Fisseha Berhane
+library(ggplot2)
+library(dplyr)
+library(reshape2)
+
+#Create four groups: setA, setB, setC and setD.
+setA=select(anscombe, x=x1,y=y1)
+setB=select(anscombe, x=x2,y=y2)
+setC=select(anscombe, x=x3,y=y3)
+setD=select(anscombe, x=x4,y=y4)
+
+#Add a third column which can help us to identify the four groups.
+setA$group =&#39;SetA&#39;
+setB$group =&#39;SetB&#39;
+setC$group =&#39;SetC&#39;
+setD$group =&#39;SetD&#39;
+
+#merge the four datasets
+all_data=rbind(setA,setB,setC,setD)  # merging all the four data sets
+all_data[c(1,13,23,43),]  # showing sample</code></pre>
+<pre><code>##     x    y group
+## 1  10 8.04  SetA
+## 13  8 8.14  SetB
+## 23 10 7.46  SetC
+## 43  8 7.91  SetD</code></pre>
+<pre class="r"><code>#compare summary stats
+summary_stats =all_data%&gt;%group_by(group)%&gt;%summarize(&quot;mean x&quot;=mean(x),
+                                       &quot;Sample variance x&quot;=var(x),
+                                       &quot;mean y&quot;=round(mean(y),2),
+                                       &quot;Sample variance y&quot;=round(var(y),1),
+                                       &#39;Correlation between x and y &#39;=round(cor(x,y),2)
+                                      )
+models = all_data %&gt;% 
+      group_by(group) %&gt;%
+      do(mod = lm(y ~ x, data = .)) %&gt;%
+      do(data.frame(var = names(coef(.$mod)),
+                    coef = round(coef(.$mod),2),
+                    group = .$group)) %&gt;%
+dcast(., group~var, value.var = &quot;coef&quot;)
+
+summary_stats_and_linear_fit = cbind(summary_stats, data_frame(&quot;Linear regression&quot; =
+                                    paste0(&quot;y = &quot;,models$&quot;(Intercept)&quot;,&quot; + &quot;,models$x,&quot;x&quot;)))
+
+summary_stats_and_linear_fit</code></pre>
+<pre><code>##   group mean x Sample variance x mean y Sample variance y
+## 1  SetA      9                11    7.5               4.1
+## 2  SetB      9                11    7.5               4.1
+## 3  SetC      9                11    7.5               4.1
+## 4  SetD      9                11    7.5               4.1
+##   Correlation between x and y  Linear regression
+## 1                         0.82      y = 3 + 0.5x
+## 2                         0.82      y = 3 + 0.5x
+## 3                         0.82      y = 3 + 0.5x
+## 4                         0.82      y = 3 + 0.5x</code></pre>
+<pre class="r"><code>#data viz instead as first step
+ggplot(all_data, aes(x=x,y=y)) +geom_point(shape = 21, colour = &quot;red&quot;, fill = &quot;orange&quot;, size = 3)+
+    ggtitle(&quot;Anscombe&#39;s data sets&quot;)+geom_smooth(method = &quot;lm&quot;,se = FALSE,color=&#39;blue&#39;) + 
+    facet_wrap(~group, scales=&quot;free&quot;)</code></pre>
+<p><img src="lesson1_files/figure-html/data%20viz%20exercise-1.png" width="672" /></p>
+<p>Outcome from stats first, data viz later (tricked), descriptive estimates of data can be deceptive. Draw first, then interpret.</p>
+<p><b>Survey data from class. Case study #2.</b></p>
+<pre class="r"><code>#load class survey responses from google poll completed in class
+survey&lt;-read.csv(&quot;data/5081.survey.1.csv&quot;)
+str(survey) #check data match what we collected</code></pre>
+<pre><code>## &#39;data.frame&#39;:    18 obs. of  4 variables:
+##  $ r.experience : int  2 1 2 3 1 1 3 1 1 3 ...
+##  $ discipline   : Factor w/ 4 levels &quot;ecology&quot;,&quot;environmental science&quot;,..: 4 3 4 4 1 4 1 1 1 3 ...
+##  $ research.data: Factor w/ 2 levels &quot;qualitative&quot;,..: 2 2 2 2 2 2 2 1 2 2 ...
+##  $ r.studio     : Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 1 2 2 2 1 1 2 1 2 1 ...</code></pre>
+<pre class="r"><code>#data viz
+hist(survey$r.experience, xlab=&quot;experience in R (1 is none, 5 is extensive)&quot;, ylab=&quot;frequency&quot;, main=&quot;Likert Scale 1 to 5&quot;)</code></pre>
+<p><img src="lesson1_files/figure-html/survey-1.png" width="672" /></p>
+<pre class="r"><code>plot(survey$r.experience~survey$discipline, xlab=&quot;discipline&quot;, ylab=&quot;experience in R&quot;)</code></pre>
+<p><img src="lesson1_files/figure-html/survey-2.png" width="672" /></p>
+<pre class="r"><code>plot(survey$r.studio, ylab=&quot;R Studio&quot;)</code></pre>
+<p><img src="lesson1_files/figure-html/survey-3.png" width="672" /></p>
+<pre class="r"><code>plot(survey$research.data, ylab=&quot;Research data&quot;)</code></pre>
+<p><img src="lesson1_files/figure-html/survey-4.png" width="672" /></p>
+<pre class="r"><code>#observe patterns by checking plots</code></pre>
+<p><b>Observations from data viz</b> We have limited experience in R. Experience in R varies by research discipline. A total of half the respondents have tried R Studio. Most participants will be working with quantitative data in their own research projects.</p>
+<pre class="r"><code>#Now, try some simple summary statistics.
+summary(survey)</code></pre>
+<pre><code>##   r.experience                   discipline      research.data r.studio
+##  Min.   :1.000   ecology              :6    qualitative : 1    No :9   
+##  1st Qu.:1.000   environmental science:1    quantitative:17    Yes:9   
+##  Median :1.000   genetics             :2                               
+##  Mean   :1.667   physiology           :9                               
+##  3rd Qu.:2.000                                                         
+##  Max.   :3.000</code></pre>
+<pre class="r"><code>#Data summary looks reasonable based on plots, mean R experience is &lt; 2
+t.test(survey$r.experience, mu=1) #t-test if mean is different from 1</code></pre>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  survey$r.experience
+## t = 3.3665, df = 17, p-value = 0.003664
+## alternative hypothesis: true mean is not equal to 1
+## 95 percent confidence interval:
+##  1.248861 2.084472
+## sample estimates:
+## mean of x 
+##  1.666667</code></pre>
+<pre class="r"><code>t.test(survey$r.experience, mu=2) #t-test if mean is different from 2</code></pre>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  survey$r.experience
+## t = -1.6833, df = 17, p-value = 0.1106
+## alternative hypothesis: true mean is not equal to 2
+## 95 percent confidence interval:
+##  1.248861 2.084472
+## sample estimates:
+## mean of x 
+##  1.666667</code></pre>
+<pre class="r"><code>#A one sample t-test confirms we have a bit experience in R.
+
+m1&lt;-glm(r.experience~discipline, family = poisson, data = survey) #test for differenes between disciplines in R experience
+m1 #model summary</code></pre>
+<pre><code>## 
+## Call:  glm(formula = r.experience ~ discipline, family = poisson, data = survey)
+## 
+## Coefficients:
+##                     (Intercept)  disciplineenvironmental science  
+##                       5.108e-01                       -5.108e-01  
+##              disciplinegenetics             disciplinephysiology  
+##                       1.823e-01                       -6.678e-10  
+## 
+## Degrees of Freedom: 17 Total (i.e. Null);  14 Residual
+## Null Deviance:       6.808 
+## Residual Deviance: 6.371     AIC: 56.79</code></pre>
+<pre class="r"><code>anova(m1, test=&quot;Chisq&quot;) #test whether the differences in model are different</code></pre>
+<pre><code>## Analysis of Deviance Table
+## 
+## Model: poisson, link: log
+## 
+## Response: r.experience
+## 
+## Terms added sequentially (first to last)
+## 
+## 
+##            Df Deviance Resid. Df Resid. Dev Pr(&gt;Chi)
+## NULL                          17     6.8075         
+## discipline  3  0.43692        14     6.3706   0.9325</code></pre>
+<pre class="r"><code>#Too little evidence to be significantly different between disciplines.</code></pre>
+<p><strong>Case study #3.</strong></p>
+<pre class="r"><code>#install.packages(&quot;SMPracticals&quot;)
+library(SMPracticals)
+library(tidyverse)
+darwin</code></pre>
+<pre><code>##    pot pair  type height
+## 1    I    1 Cross 23.500
+## 2    I    1  Self 17.375
+## 3    I    2 Cross 12.000
+## 4    I    2  Self 20.375
+## 5    I    3 Cross 21.000
+## 6    I    3  Self 20.000
+## 7   II    4 Cross 22.000
+## 8   II    4  Self 20.000
+## 9   II    5 Cross 19.125
+## 10  II    5  Self 18.375
+## 11  II    6 Cross 21.500
+## 12  II    6  Self 18.625
+## 13 III    7 Cross 22.125
+## 14 III    7  Self 18.625
+## 15 III    8 Cross 20.375
+## 16 III    8  Self 15.250
+## 17 III    9 Cross 18.250
+## 18 III    9  Self 16.500
+## 19 III   10 Cross 21.625
+## 20 III   10  Self 18.000
+## 21 III   11 Cross 23.250
+## 22 III   11  Self 16.250
+## 23  IV   12 Cross 21.000
+## 24  IV   12  Self 18.000
+## 25  IV   13 Cross 22.125
+## 26  IV   13  Self 12.750
+## 27  IV   14 Cross 23.000
+## 28  IV   14  Self 15.500
+## 29  IV   15 Cross 12.000
+## 30  IV   15  Self 18.000</code></pre>
+<pre class="r"><code>data(&quot;darwin&quot;)
+data &lt;- darwin
+data &lt;- as_tibble(data)
+data</code></pre>
+<pre><code>## # A tibble: 30 x 4
+##    pot   pair  type  height
+##  * &lt;fct&gt; &lt;fct&gt; &lt;fct&gt;  &lt;dbl&gt;
+##  1 I     1     Cross   23.5
+##  2 I     1     Self    17.4
+##  3 I     2     Cross   12  
+##  4 I     2     Self    20.4
+##  5 I     3     Cross   21  
+##  6 I     3     Self    20  
+##  7 II    4     Cross   22  
+##  8 II    4     Self    20  
+##  9 II    5     Cross   19.1
+## 10 II    5     Self    18.4
+## # ... with 20 more rows</code></pre>
+<pre class="r"><code>ggplot(darwin, aes(type, height)) +
+  geom_boxplot()</code></pre>
+<p><img src="lesson1_files/figure-html/text-1.png" width="672" /></p>
+<p><strong>Case study #4.</strong></p>
+<pre class="r"><code>library(tidyverse)
+data &lt;- read_csv(&quot;data/5081.survey.2.csv&quot;)
+data</code></pre>
+<pre><code>## # A tibble: 21 x 4
+##    r.experience discipline            research.data r.studio
+##           &lt;int&gt; &lt;chr&gt;                 &lt;chr&gt;         &lt;chr&gt;   
+##  1            1 physiology            quantitative  No      
+##  2            1 physiology            quantitative  Yes     
+##  3           NA ecology               quantitative  Yes     
+##  4            2 ecology               quantitative  No      
+##  5            2 ecology               quantitative  No      
+##  6            2 physiology            qualitative   No      
+##  7            1 genetics              quantitative  No      
+##  8            1 environmental science quantitative  No      
+##  9            2 genetics              qualitative   Yes     
+## 10            2 ecology               quantitative  Yes     
+## # ... with 11 more rows</code></pre>
+<pre class="r"><code>data &lt;- na.exclude(data)
+data</code></pre>
+<pre><code>## # A tibble: 19 x 4
+##    r.experience discipline            research.data r.studio
+##           &lt;int&gt; &lt;chr&gt;                 &lt;chr&gt;         &lt;chr&gt;   
+##  1            1 physiology            quantitative  No      
+##  2            1 physiology            quantitative  Yes     
+##  3            2 ecology               quantitative  No      
+##  4            2 ecology               quantitative  No      
+##  5            2 physiology            qualitative   No      
+##  6            1 genetics              quantitative  No      
+##  7            1 environmental science quantitative  No      
+##  8            2 genetics              qualitative   Yes     
+##  9            2 ecology               quantitative  Yes     
+## 10            1 physiology            quantitative  No      
+## 11            3 ecology               quantitative  Yes     
+## 12            4 ecology               quantitative  Yes     
+## 13            3 ecology               quantitative  Yes     
+## 14            2 ecology               quantitative  Yes     
+## 15            2 genetics              quantitative  Yes     
+## 16            2 ecology               quantitative  Yes     
+## 17            1 environmental science quantitative  No      
+## 18            1 environmental science quantitative  No      
+## 19            2 ecology               qualitative   No</code></pre>
+<pre class="r"><code>#crimping code from last time to compare the same way
+hist(data$r.experience, xlab=&quot;experience in R (1 is none, 5 is extensive)&quot;, ylab=&quot;frequency&quot;, main=&quot;Likert Scale 1 to 5&quot;)</code></pre>
+<p><img src="lesson1_files/figure-html/2018.data-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data, aes(discipline, r.experience)) +
+  geom_boxplot()</code></pre>
+<p><img src="lesson1_files/figure-html/2018.data-2.png" width="672" /></p>
+<pre class="r"><code>ggplot(data, aes(r.studio)) +
+  geom_bar()</code></pre>
+<p><img src="lesson1_files/figure-html/2018.data-3.png" width="672" /></p>
+<pre class="r"><code>ggplot(data, aes(research.data)) +
+  geom_bar()</code></pre>
+<p><img src="lesson1_files/figure-html/2018.data-4.png" width="672" /></p>
+<p><b> Practical skill outcomes of R stats useful for competency test</b></p>
+<p>Understand the difference between R and R Studio.<br />
+Use scripts or R Markdown files to save all your work.<br />
+Be prepared to share code.<br />
+Load data, clean data, visualize data, then and only then begin applying statistics.</p>
+<p>Proximately: be able to use and work with dataframes, vectors, functions, tibbles, and libraries in R.</p>
+<p><strong>Readings</strong><br />
+Ch1 and appendix in text.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
